@@ -1,11 +1,17 @@
-[project]
-name = "example_package_YOUR_USERNAME_HERE"
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+Project_name = "OneNeuron_pypi"
+user_name = "PavanJahagirdar"
+name = f"{project_name}-{user_name}"
 version = "0.0.1"
 authors = [
-  { name="Example Author", email="author@example.com" },
+  { name=user_name, email="pavanjahagirdar7@gmail.com" },
 ]
-description = "A small example package"
+description = "This is the implementation of Perceptron"
 readme = "README.md"
+
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -14,5 +20,12 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://github.com/PavanJahagirdar/OneNeuron_pypi.git"
+"Bug Tracker" = f"https://github.com/PavanJahagirdar/OneNeuron_pypi/issues"
+
+package_dir = {"", "src"},
+packages = setuptools.find_packages(where = "src")
+install_requires = [
+    "numpy",
+    "tqdm"
+]
