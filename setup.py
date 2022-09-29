@@ -1,31 +1,33 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+import setuptools
 
-Project_name = "OneNeuron_pypi"
-user_name = "PavanJahagirdar"
-name = f"{project_name}-{user_name}"
-version = "0.0.1"
-authors = [
-  { name=user_name, email="pavanjahagirdar7@gmail.com" },
-]
-description = "This is the implementation of Perceptron"
-readme = "README.md"
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
-requires-python = ">=3.7"
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
+PROJECT_NAME = "OneNeuron_pypi"
+USER_NAME = "pavanjahagirdar"
 
-[project.urls]
-"Homepage" = "https://github.com/PavanJahagirdar/OneNeuron_pypi.git"
-"Bug Tracker" = f"https://github.com/PavanJahagirdar/OneNeuron_pypi/issues"
-
-package_dir = {"", "src"},
-packages = setuptools.find_packages(where = "src")
-install_requires = [
-    "numpy",
-    "tqdm"
-]
+setuptools.setup(
+    name=f"{PROJECT_NAME}-{USER_NAME}",
+    version="0.0.2",
+    author=USER_NAME,
+    author_email="pavanjahagirdar7@gmail.com",
+    description="its an implimentation of Perceptron",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url=f"https://github.com/{USER_NAME}/{PROJECT_NAME}",
+    project_urls={
+        "Bug Tracker": f"https://github.com/{USER_NAME}/{PROJECT_NAME}/issues",
+    },
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src"),
+    python_requires=">=3.7",
+    install_requires=[
+        "numpy",
+        "tqdm"
+    ]
+)
